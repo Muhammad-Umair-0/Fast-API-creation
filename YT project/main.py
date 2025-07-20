@@ -10,7 +10,7 @@ async def index():
     # return {'data': {"name":"Umair"}}
     return {'data': 'blog list'}
     # a = input("Enter a number ")
-    return {"a"}
+    # return {"a"}
     # return {"sum": 2+4}
 
 
