@@ -7,7 +7,7 @@ from pathlib import Path
 # creating app instant 
 app  = FastAPI()
 
-@app.get("/get_image")
+@app.post("/get_image")
 async def get_image():
     image_path = Path(".\\pic.jpg")
     
