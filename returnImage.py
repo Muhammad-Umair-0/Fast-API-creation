@@ -1,9 +1,11 @@
+from importlib.resources import files
 from fastapi import FastAPI, File, UploadFile
 import uuid
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 import os
+from random import randint
 
 IMAGE_DIR = "./Results"
 
@@ -37,5 +39,15 @@ async def create_upload_file(file: UploadFile = File(...)):
     image_url = f"/Results/{filename}"
     return {"filename": filename, "url": image_url}
 
-
+@app.get("/show")
+async def read_file():
+    # get file from image directory
+    files = os.listdir(IMAGE_DIR)
+    if not files:
+        return {"error": "No images found."}
+    random_index = randint(1, len(files)-1)
+    
+    path = f"{IMAGE_DIR}/{files[random_index]}"
+    return FileResponse(path)
+    # return FileResponse(path, media_type='image/jpeg', filename=files[random_index])
 
