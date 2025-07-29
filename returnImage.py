@@ -49,5 +49,5 @@ async def read_file():
     
     path = f"{IMAGE_DIR}/{files[random_index]}"
     return FileResponse(path)
-    # return FileResponse(path, media_type='image/jpeg', filename=files[random_index])
+    return FileResponse(path, media_type='image/jpeg', filename=files[random_index])
 
