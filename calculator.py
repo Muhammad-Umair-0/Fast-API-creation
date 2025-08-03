@@ -13,7 +13,7 @@ class Claculator:
 a= input(("Enter The Value of A"))
 b = input(("ENter the value of B "))
 
-obj  =Claculator(a,b)
+obj  = Claculator(a,b)
 print(obj.add())
 
     
